@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      /* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa; /* Light background for contrast */
+}
+
+/* Navigation Bar */
+.nav-bar {
+    background-color: #343a40; /* Dark background for navbar */
+    padding: 15px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Navbar Links */
+.nav-bar a {
+    color: white;
+    margin-right: 20px;
+    font-size: 18px;
+    transition: color 0.3s ease; /* Smooth transition for link color */
+}
+
+.nav-bar .navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: #212529; /* Dark sidebar */
+    height: 100vh;
+    padding-top: 20px;
+    color: white;
+    position: fixed;
+    width: 250px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Sidebar Links */
+.sidebar a {
+    color: white;
+    padding: 15px 20px; /* Increased padding for better spacing */
+    display: block;
+    text-decoration: none;
+    font-size: 18px;
+    transition: background-color 0.3s ease; /* Smooth transition for sidebar links */
+}
+
+.sidebar a:hover {
+    background-color: #343a40; /* Slightly lighter background on hover */
+}
+
+/* Main Content Area */
+.content {
+    margin-left: 270px; /* Adjusting margin for sidebar */
+    padding: 20px;
+}
+
+/* Statistics Cards */
+.statistics-card {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    text-align: center;
+    background-color: #ffffff; /* White background for cards */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth scaling and shadow transition on hover */
+}
+
+.statistics-card:hover {
+    transform: scale(1.05); /* Scale up slightly on hover */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* Enhanced shadow on hover */
+}
+
+/* Headings */
+h4 {
+    color: #343a40; /* Darker text for headings */
+    margin-bottom: 15px; /* Spacing below headings */
+}
+
+/* Activity Feed Items */
+.activity-feed-item {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    background-color: #ffffff; /* Light background for activity feed */
+    border-radius: 5px;
+    transition: background-color 0.3s ease; /* Transition for background color */
+}
+
+.activity-feed-item:hover {
+    background-color: #e9ecef; /* Light grey on hover */
+}
+
+/* Tables */
+.table-responsive {
+    margin-top: 20px;
+}
+
+.table {
+    background-color: #ffffff; /* White background for tables */
+    border-radius: 10px; /* Rounded corners for table */
+}
+
+.table th {
+    background-color: #343a40; /* Dark header for tables */
+    color: white;
+}
+
+/* Table Row Hover Effect */
+.table tbody tr:hover {
+    background-color: #f1f1f1; /* Highlight row on hover */
+}
+
+/* Button Styles */
+.btn-approve {
+    background-color: #28a745; /* Green for approve */
+    color: white;
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition for background */
+}
+
+.btn-reject {
+    background-color: #dc3545; /* Red for reject */
+    color: white;
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition for background */
+}
+
+.btn-edit, .btn-disable {
+    background-color: #17a2b8; /* Teal for edit and disable */
+    color: white;
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition for background */
+}
+
+/* Button Hover Effects */
+.btn-approve:hover, .btn-reject:hover, .btn-edit:hover, .btn-disable:hover {
+    opacity: 0.9; /* Slight opacity change on hover for buttons */
+}
+
+/* Modal Styles */
+.modal-content {
+    border-radius: 10px; /* Rounded corners for modal */
+}
+
+.modal-header {
+    border-bottom: none; /* Remove border from modal header */
+}
+
+.modal-footer {
+    border-top: none; /* Remove border from modal footer */
+}
+
+.form-label {
+    color: #343a40; /* Darker color for labels */
+}
+
+.form-control {
+    border-radius: 5px; /* Rounded corners for inputs */
+}
+
+/* Additional Responsive Adjustments */
+@media (max-width: 768px) {
+    .sidebar {
+        position: relative; /* Change sidebar positioning on smaller screens */
+        height: auto; /* Auto height for responsiveness */
+    }
+    .content {
+        margin-left: 0; /* Remove left margin for smaller screens */
+    }
+}
+
+
+
+    </style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="nav-bar navbar-expand-lg">
+    <div class="container-fluid">
+        <a href="#" class="navbar-brand">Admin Dashboard</a>
+    </div>
+</nav>
+
+<!-- Sidebar Navigation -->
+<div class="sidebar">
+    <a href="index.html">Dashboard</a>
+    <a href="user_management.html">User Management</a>
+    <a href="approval_requests.html">Approval Requests</a>
+    <a href="reports.html">Reports</a>
+</div>
+
+<!-- Main Content Area -->
+<div class="content">
+    <h1>Welcome to the Admin Dashboard</h1>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="statistics-card bg-light">
+                <h4>Pending Requests</h4>
+                <p><strong>12</strong></p>
+            </div>
+            <div class="statistics-card bg-light">
+                <h4>Registered Users</h4>
+                <p><strong>78</strong></p>
+            </div>
+            <div class="statistics-card bg-light">
+                <h4>Recent Changes</h4>
+                <p>Enrollment data updated by Registrar</p>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <h4>Recent Activity</h4>
+            <div class="activity-feed-item">
+                <p><strong>Admin1</strong> approved request #1001 on 2024-10-03</p>
+            </div>
+            <div class="activity-feed-item">
+                <p><strong>Admin2</strong> updated user roles on 2024-10-02</p>
+            </div>
+            <div class="activity-feed-item">
+                <p><strong>Admin1</strong> rejected request #1002 on 2024-10-01</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
